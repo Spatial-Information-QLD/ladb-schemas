@@ -1,0 +1,49 @@
+PREFIX la: <https://linked.data.gov.au/def/location-addressing/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+la:accepted
+    a skos:Concept ;
+    skos:inScheme la:ChangeRequestStatuses ;
+    skos:prefLabel "accepted" ;
+    skos:topConceptOf la:ChangeRequestStatuses ;
+.
+
+la:rejected
+    a skos:Concept ;
+    skos:inScheme la:ChangeRequestStatuses ;
+    skos:prefLabel "rejected" ;
+    skos:topConceptOf la:ChangeRequestStatuses ;
+.
+
+<urn:ladb:changerequest:7ec569bd-0dec-4fec-8485-fcb22e1076a8>
+    a la:ChangeRequest ;
+    rdf:value """
+        TX .
+    
+        A _:B65dab9880ff54f199ebaee037cada261b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "South" .
+    
+        TC .
+    """ ;
+    sdo:actionStatus la:pending ;
+    sdo:agent <urn:ladb:user:edmond-chuc> ;
+    sdo:description "Add suffix for new road divide." ;
+    sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
+    sdo:schemaVersion "https://example.com/location-addressing/0.1.0"^^xsd:anyURI ;
+    sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
+.
+
+la:pending
+    a skos:Concept ;
+    skos:inScheme la:ChangeRequestStatuses ;
+    skos:prefLabel "pending" ;
+    skos:topConceptOf la:ChangeRequestStatuses ;
+.
+
+la:ChangeRequestStatuses
+    a skos:ConceptScheme ;
+    skos:prefLabel "Change Request Statuses" ;
+.
+

@@ -1,0 +1,231 @@
+PREFIX : <https://linked.data.gov.au/def/location-addressing/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+:ChangeRequest
+    a
+        rdfs:Class ,
+        owl:Class ,
+        sh:NodeShape ;
+    rdfs:subClassOf sdo:UpdateAction ;
+    skos:definition "A change request contains an RDF patch log body and metadata around who made the change request and when." ;
+    skos:prefLabel "Change Request" ;
+    sh:property
+        [
+            sh:datatype xsd:dateTime ;
+            sh:description "Date and time when the change request was made." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdo:startTime
+        ] ,
+        [
+            sh:datatype xsd:anyURI ;
+            sh:description "The SHACL shapes version IRI to which this data conforms to." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdo:schemaVersion
+        ] ,
+        [
+            sh:description "Person who created the change request." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path sdo:agent
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:description "The RDF patch log body content." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:value
+        ] ,
+        [
+            sh:description "The IRI of the resource to which this change request applies." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path sdo:object
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:description "A description of the context for the change request." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdo:description
+        ] ,
+        [
+            sh:description "Person who accepted or rejected the change request." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path sdo:participant
+        ] ,
+        [
+            sh:description "The change request status." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node [
+                    sh:property
+                        [
+                            sh:hasValue :ChangeRequestStatuses ;
+                            sh:path skos:inScheme
+                        ] ,
+                        [
+                            sh:hasValue skos:Concept ;
+                            sh:path rdf:type
+                        ]
+                ] ;
+            sh:nodeKind sh:IRI ;
+            sh:path sdo:actionStatus
+        ] ;
+    sdo:workExample
+        [
+            a sdo:TextObject ;
+            sh:order 0 ;
+            sdo:description "SHACL shape of the sdo:actionStatus value where the value is a concept and is part of the ChangeRequestStatuses concept scheme." ;
+            sdo:encodingFormat "text/turtle" ;
+            sdo:name "Action Status Property Shape" ;
+            sdo:text """
+            []  a sh:PropertyShape ;
+                sh:path sdo:actionStatus ;
+                sh:description "The change request status." ;
+                sh:nodeKind sh:IRI ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:node [
+                    sh:property [
+                        sh:path rdf:type ;
+                        sh:hasValue skos:Concept
+                    ] ;
+                    sh:property [
+                        sh:path skos:inScheme ;
+                        sh:hasValue :ChangeRequestStatuses
+                    ]
+                ]
+            ]
+        """
+        ] ,
+        [
+            a sdo:TextObject ;
+            sh:order 1 ;
+            sdo:description "A valid change request with an RDF patch log body as the value for sdo:object." ;
+            sdo:encodingFormat "text/turtle" ;
+            sdo:name "Change Request Example" ;
+            sdo:text """
+            <urn:ladb:changerequest:7ec569bd-0dec-4fec-8485-fcb22e1076a8> a la:ChangeRequest ;
+                sdo:startTime "2024-02-16T01:12:08Z"^^xsd:dateTime ;
+                sdo:agent <urn:ladb:user:edmond-chuc> ;
+                sdo:description "Add suffix for new road divide." ;
+                sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
+                rdf:value \"\"\"
+                    TX .
+                
+                    A _:B65dab9880ff54f199ebaee037cada261b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "South" .
+                
+                    TC .
+                \"\"\" ;
+            .
+        """
+        ] ;
+.
+
+<https://linked.data.gov.au/def/location-addressing>
+    a owl:Ontology ;
+    dcterms:created "2024-02-15"^^xsd:date ;
+    dcterms:description "Schemas for the QLD Location Addressing system." ;
+    skos:prefLabel "Location Addressing Schemas" ;
+    prof:isProfileOf sdo: ;
+    sdo:creator "Edmond Chuc" ;
+.
+
+:accepted
+    a skos:Concept ;
+    skos:inScheme :ChangeRequestStatuses ;
+    skos:prefLabel "accepted" ;
+    skos:topConceptOf :ChangeRequestStatuses ;
+.
+
+:pending
+    a skos:Concept ;
+    skos:inScheme :ChangeRequestStatuses ;
+    skos:prefLabel "pending" ;
+    skos:topConceptOf :ChangeRequestStatuses ;
+.
+
+:rejected
+    a skos:Concept ;
+    skos:inScheme :ChangeRequestStatuses ;
+    skos:prefLabel "rejected" ;
+    skos:topConceptOf :ChangeRequestStatuses ;
+.
+
+rdf:value
+    a
+        rdf:Property ,
+        owl:AnnotationProperty ;
+    rdfs:isDefinedBy rdf: ;
+    skos:definition "Idiomatic property used for structured values." ;
+    skos:prefLabel "value" ;
+.
+
+sdo:actionStatus
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy sdo: ;
+    skos:definition "Indicates the current disposition of the Action." ;
+    skos:prefLabel "action status" ;
+.
+
+sdo:agent
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy sdo: ;
+    skos:definition "The direct performer or driver of the action (animate or inanimate). E.g. *John* wrote a book." ;
+    skos:prefLabel "agent" ;
+.
+
+sdo:description
+    a owl:AnnotationProperty ;
+    rdfs:isDefinedBy sdo: ;
+    skos:definition "A description of the item." ;
+    skos:prefLabel "description" ;
+.
+
+sdo:object
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy sdo: ;
+    skos:definition "The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). E.g. John read *a book*." ;
+    skos:prefLabel "object" ;
+.
+
+sdo:participant
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy sdo: ;
+    skos:definition "Other co-agents that participated in the action indirectly. E.g. John wrote a book with *Steve*." ;
+    skos:prefLabel "participant" ;
+.
+
+sdo:schemaVersion
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy sdo: ;
+    skos:definition "Indicates (by URL or string) a particular version of a schema used in some CreativeWork." ;
+    skos:prefLabel "schema version" ;
+.
+
+sdo:startTime
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy sdo: ;
+    skos:definition """The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. E.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.
+
+Note that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.""" ;
+    skos:prefLabel "start time" ;
+.
+
+:ChangeRequestStatuses
+    a skos:ConceptScheme ;
+    skos:prefLabel "Change Request Statuses" ;
+.
+

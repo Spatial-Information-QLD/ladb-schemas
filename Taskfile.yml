@@ -1,0 +1,15 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  code:
+    cmd: kurra format .
+
+  pylode:
+    cmds:
+      - pylode -p supermodel -o index.html schema.ttl
+      - python -m http.server
+
+  pyshacl:
+    cmd: pyshacl -s schema.ttl example.ttl
