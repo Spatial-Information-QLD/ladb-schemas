@@ -23,8 +23,8 @@ jobs:
 
       - name: Install pipx
         run: |
-          apt-get update
-          apt-get install pipx -y
+          sudo apt-get update
+          sudo apt-get install pipx -y
           pipx ensurepath
 
       - name: Install pyLODE
