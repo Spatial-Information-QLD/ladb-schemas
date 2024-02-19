@@ -3,13 +3,6 @@ PREFIX sdo: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-la:failed
-    a skos:Concept ;
-    skos:inScheme la:ChangeRequestStatuses ;
-    skos:prefLabel "failed" ;
-    skos:topConceptOf la:ChangeRequestStatuses ;
-.
-
 la:pending
     a skos:Concept ;
     skos:inScheme la:ChangeRequestStatuses ;
@@ -22,6 +15,30 @@ la:rejected
     skos:inScheme la:ChangeRequestStatuses ;
     skos:prefLabel "rejected" ;
     skos:topConceptOf la:ChangeRequestStatuses ;
+.
+
+<urn:ladb:changerequest:05708d9f-74cc-46b8-a1f0-9cf80b78c189>
+    a la:ChangeRequest ;
+    sdo:actionStatus la:failed ;
+    sdo:agent <urn:ladb:user:edmond-chuc> ;
+    sdo:description "Add suffix for new road divide." ;
+    sdo:error [
+            sdo:description "Failed to send to RDF Delta Server."
+        ] ;
+    sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
+    sdo:participant <urn:ladb:user:admin> ;
+    sdo:result [
+            sdo:encodingFormat "application/rdf-patch-body" ;
+            sdo:text """
+            TX .
+        
+            A _:B65dab9880ff54f199ebaee037cada261b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "South" .
+        
+            TC .
+        """
+        ] ;
+    sdo:schemaVersion "https://example.com/location-addressing/0.1.0"^^xsd:anyURI ;
+    sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
 .
 
 <urn:ladb:patchlogheader:1>
@@ -38,6 +55,13 @@ la:accepted
     a skos:Concept ;
     skos:inScheme la:ChangeRequestStatuses ;
     skos:prefLabel "accepted" ;
+    skos:topConceptOf la:ChangeRequestStatuses ;
+.
+
+la:failed
+    a skos:Concept ;
+    skos:inScheme la:ChangeRequestStatuses ;
+    skos:prefLabel "failed" ;
     skos:topConceptOf la:ChangeRequestStatuses ;
 .
 
