@@ -350,7 +350,6 @@ rdf:value
     a sh:PropertyShape ;
     sh:description "The ChangeRequest object's identifier." ;
     sh:maxCount 1 ;
-    sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
     sh:path sdo:isPartOf ;
 .
