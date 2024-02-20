@@ -1,5 +1,6 @@
 PREFIX : <https://linked.data.gov.au/def/location-addressing/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX la-status: <https://linked.data.gov.au/def/location-addressing/status/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -71,28 +72,28 @@ rdf:value
     sdo:creator "Edmond Chuc" ;
 .
 
-:accepted
+la-status:accepted
     a skos:Concept ;
     skos:inScheme :ChangeRequestStatuses ;
     skos:prefLabel "accepted" ;
     skos:topConceptOf :ChangeRequestStatuses ;
 .
 
-:failed
+la-status:failed
     a skos:Concept ;
     skos:inScheme :ChangeRequestStatuses ;
     skos:prefLabel "failed" ;
     skos:topConceptOf :ChangeRequestStatuses ;
 .
 
-:pending
+la-status:pending
     a skos:Concept ;
     skos:inScheme :ChangeRequestStatuses ;
     skos:prefLabel "pending" ;
     skos:topConceptOf :ChangeRequestStatuses ;
 .
 
-:rejected
+la-status:rejected
     a skos:Concept ;
     skos:inScheme :ChangeRequestStatuses ;
     skos:prefLabel "rejected" ;
@@ -138,7 +139,7 @@ rdf:value
                     sh:path sdo:description
                 ]
         ] ;
-    sh:nodeKind sh:IRIOrBlankNode ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
     sh:path sdo:error ;
 .
 
@@ -189,7 +190,7 @@ rdf:value
     sdo:text """
             <urn:ladb:changerequest:7ec569bd-0dec-4fec-8485-fcb22e1076a8>
             a la:ChangeRequest ;
-            sdo:actionStatus la:accepted ;
+            sdo:actionStatus la-status:accepted ;
             sdo:agent <urn:ladb:user:edmond-chuc> ;
             sdo:description "Add suffix for new road divide." ;
             sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
@@ -219,7 +220,7 @@ rdf:value
     sdo:text """
         <urn:ladb:changerequest:05708d9f-74cc-46b8-a1f0-9cf80b78c189>
             a la:ChangeRequest ;
-            sdo:actionStatus la:failed ;
+            sdo:actionStatus la-status:failed ;
             sdo:agent <urn:ladb:user:edmond-chuc> ;
             sdo:description "Add suffix for new road divide." ;
             sdo:error [
@@ -286,7 +287,7 @@ rdf:value
 
 :ChangeRequestStatus-inScheme
     a sh:PropertyShape ;
-    sh:hasValue :ChangeRequestStatuses ;
+    sh:hasValue la-status:ChangeRequestStatuses ;
     sh:path skos:inScheme ;
 .
 
@@ -373,6 +374,11 @@ rdf:value
     sh:path sdo:isPartOf ;
 .
 
+la-status:ChangeRequestStatuses
+    a skos:ConceptScheme ;
+    skos:prefLabel "Change Request Statuses" ;
+.
+
 sdo:actionStatus
     a owl:ObjectProperty ;
     rdfs:isDefinedBy sdo: ;
@@ -447,10 +453,5 @@ sdo:description
     rdfs:isDefinedBy sdo: ;
     skos:definition "A description of the item." ;
     skos:prefLabel "description" ;
-.
-
-:ChangeRequestStatuses
-    a skos:ConceptScheme ;
-    skos:prefLabel "Change Request Statuses" ;
 .
 

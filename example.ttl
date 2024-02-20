@@ -1,25 +1,26 @@
 PREFIX la: <https://linked.data.gov.au/def/location-addressing/>
+PREFIX la-status: <https://linked.data.gov.au/def/location-addressing/status/>
 PREFIX sdo: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-la:pending
+la-status:pending
     a skos:Concept ;
-    skos:inScheme la:ChangeRequestStatuses ;
+    skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "pending" ;
-    skos:topConceptOf la:ChangeRequestStatuses ;
+    skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
-la:rejected
+la-status:rejected
     a skos:Concept ;
-    skos:inScheme la:ChangeRequestStatuses ;
+    skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "rejected" ;
-    skos:topConceptOf la:ChangeRequestStatuses ;
+    skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
 <urn:ladb:changerequest:05708d9f-74cc-46b8-a1f0-9cf80b78c189>
     a la:ChangeRequest ;
-    sdo:actionStatus la:failed ;
+    sdo:actionStatus la-status:failed ;
     sdo:agent <urn:ladb:user:edmond-chuc> ;
     sdo:description "Add suffix for new road divide." ;
     sdo:error [
@@ -51,23 +52,23 @@ la:rejected
     sdo:schemaVersion "https://example.com/location-addressing/0.1.0"^^xsd:anyURI ;
 .
 
-la:accepted
+la-status:accepted
     a skos:Concept ;
-    skos:inScheme la:ChangeRequestStatuses ;
+    skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "accepted" ;
-    skos:topConceptOf la:ChangeRequestStatuses ;
+    skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
-la:failed
+la-status:failed
     a skos:Concept ;
-    skos:inScheme la:ChangeRequestStatuses ;
+    skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "failed" ;
-    skos:topConceptOf la:ChangeRequestStatuses ;
+    skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
 <urn:ladb:changerequest:7ec569bd-0dec-4fec-8485-fcb22e1076a8>
     a la:ChangeRequest ;
-    sdo:actionStatus la:accepted ;
+    sdo:actionStatus la-status:accepted ;
     sdo:agent <urn:ladb:user:edmond-chuc> ;
     sdo:description "Add suffix for new road divide." ;
     sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
@@ -86,7 +87,7 @@ la:failed
     sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
 .
 
-la:ChangeRequestStatuses
+la-status:ChangeRequestStatuses
     a skos:ConceptScheme ;
     skos:prefLabel "Change Request Statuses" ;
 .
