@@ -3,6 +3,9 @@
 version: "3"
 
 tasks:
+  code:check:
+    cmd: kurra format --check
+
   code:
     cmd: kurra format .
 
