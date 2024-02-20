@@ -14,5 +14,5 @@ tasks:
       - pylode -p supermodel -o index.html schema.ttl
       - python -m http.server
 
-  pyshacl:
-    cmd: pyshacl -s schema.ttl example.ttl
+  test:
+    cmd: pyshacl -s schema.ttl test.ttl
