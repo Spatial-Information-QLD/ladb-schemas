@@ -74,30 +74,30 @@ rdf:value
 
 la-status:accepted
     a skos:Concept ;
-    skos:inScheme :ChangeRequestStatuses ;
+    skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "accepted" ;
-    skos:topConceptOf :ChangeRequestStatuses ;
+    skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
 la-status:failed
     a skos:Concept ;
-    skos:inScheme :ChangeRequestStatuses ;
+    skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "failed" ;
-    skos:topConceptOf :ChangeRequestStatuses ;
+    skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
 la-status:pending
     a skos:Concept ;
-    skos:inScheme :ChangeRequestStatuses ;
+    skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "pending" ;
-    skos:topConceptOf :ChangeRequestStatuses ;
+    skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
 la-status:rejected
     a skos:Concept ;
-    skos:inScheme :ChangeRequestStatuses ;
+    skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "rejected" ;
-    skos:topConceptOf :ChangeRequestStatuses ;
+    skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
 :ChangeRequest-actionStatus
@@ -374,11 +374,6 @@ la-status:rejected
     sh:path sdo:isPartOf ;
 .
 
-la-status:ChangeRequestStatuses
-    a skos:ConceptScheme ;
-    skos:prefLabel "Change Request Statuses" ;
-.
-
 sdo:actionStatus
     a owl:ObjectProperty ;
     rdfs:isDefinedBy sdo: ;
@@ -453,5 +448,10 @@ sdo:description
     rdfs:isDefinedBy sdo: ;
     skos:definition "A description of the item." ;
     skos:prefLabel "description" ;
+.
+
+la-status:ChangeRequestStatuses
+    a skos:ConceptScheme ;
+    skos:prefLabel "Change Request Statuses" ;
 .
 
