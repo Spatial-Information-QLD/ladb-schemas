@@ -44,10 +44,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     skos:prefLabel "Patch Log Header" ;
     sh:property
         :MediaObject-encodingFormat ,
-        :PatchLogHeader-about ,
         :PatchLogHeader-creator ,
         :PatchLogHeader-dateCreated ,
         :PatchLogHeader-isPartOf ,
+        :Property-about ,
         :Property-schemaVersion ;
     sdo:workExample
         :PatchLogHeader-example-0 ,
@@ -301,7 +301,8 @@ la-status:rejected
     a sh:NodeShape ;
     sh:property
         :MediaObject-encodingFormat ,
-        :MediaObject-text ;
+        :MediaObject-text ,
+        :Property-about ;
 .
 
 :MediaObject-text
@@ -310,14 +311,6 @@ la-status:rejected
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:path sdo:text ;
-.
-
-:PatchLogHeader-about
-    a sh:PropertyShape ;
-    sh:description "Indicate what resources are affected by this event. External systems can subscribe to the topic and react to changes based on specific resources being updated." ;
-    sh:minCount 1 ;
-    sh:nodeKind sh:IRI ;
-    sh:path sdo:about ;
 .
 
 :PatchLogHeader-creator
@@ -432,6 +425,14 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:path sdo:encodingFormat ;
+.
+
+:Property-about
+    a sh:PropertyShape ;
+    sh:description "Indicate what resources are affected by this event. External systems can subscribe to the topic and react to changes based on specific resources being updated." ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:path sdo:about ;
 .
 
 :Property-schemaVersion

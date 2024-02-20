@@ -29,6 +29,7 @@ la-status:rejected
     sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
     sdo:participant <urn:ladb:user:admin> ;
     sdo:result [
+            sdo:about <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
             sdo:encodingFormat "application/rdf-patch-body" ;
             sdo:text """
             TX .
@@ -74,6 +75,7 @@ la-status:failed
     sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
     sdo:participant <urn:ladb:user:admin> ;
     sdo:result [
+            sdo:about <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
             sdo:encodingFormat "application/rdf-patch-body" ;
             sdo:text """
             TX .
