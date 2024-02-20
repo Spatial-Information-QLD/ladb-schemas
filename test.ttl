@@ -38,7 +38,7 @@ la-status:rejected
             TC .
         """
         ] ;
-    sdo:schemaVersion "https://example.com/location-addressing/0.1.0"^^xsd:anyURI ;
+    sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
     sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
 .
 
@@ -49,7 +49,7 @@ la-status:rejected
     sdo:dateCreated "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
     sdo:encodingFormat "application/rdf-patch-body" ;
     sdo:isPartOf <urn:ladb:changerequest:7ec569bd-0dec-4fec-8485-fcb22e1076a8> ;
-    sdo:schemaVersion "https://example.com/location-addressing/0.1.0"^^xsd:anyURI ;
+    sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
 .
 
 la-status:accepted
@@ -83,7 +83,7 @@ la-status:failed
             TC .
         """
         ] ;
-    sdo:schemaVersion "https://example.com/location-addressing/0.1.0"^^xsd:anyURI ;
+    sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
     sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
 .
 
