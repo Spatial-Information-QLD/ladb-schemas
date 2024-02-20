@@ -158,6 +158,25 @@ rdf:value
                 sh:nodeKind sh:IRI ;
                 sh:path sdo:actionStatus ;
             .
+
+            :ChangeRequestStatus
+                a sh:NodeShape ;
+                sh:property
+                    :ChangeRequestStatus-inScheme ,
+                    :Concept-type ;
+            .
+
+            :ChangeRequestStatus-inScheme
+                a sh:PropertyShape ;
+                sh:hasValue :ChangeRequestStatuses ;
+                sh:path skos:inScheme ;
+            .
+
+            :Concept-type
+                a sh:PropertyShape ;
+                sh:hasValue skos:Concept ;
+                sh:path rdf:type ;
+            .
         """ ;
 .
 
