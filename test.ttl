@@ -37,7 +37,7 @@ la-status:rejected
             A _:B65dab9880ff54f199ebaee037cada261b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "South" .
         
             TC .
-        """
+        """^^la:rdf-patch-body
         ] ;
     sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
     sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
@@ -83,7 +83,7 @@ la-status:failed
             A _:B65dab9880ff54f199ebaee037cada261b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "South" .
         
             TC .
-        """
+        """^^la:rdf-patch-body
         ] ;
     sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
     sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;

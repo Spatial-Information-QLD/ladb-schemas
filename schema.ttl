@@ -50,6 +50,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         :Property-about ,
         :Property-schemaVersion ;
     sdo:workExample
+        [
+            a sdo:TextObject ;
+            sdo:encodingFormat "text/plain" ;
+            sdo:name "TODO:" ;
+            sdo:text """
+                - Add @type values in PatchLogHeader. This allows consumers to filter by the object type.
+            """
+        ] ,
         :PatchLogHeader-example-0 ,
         :PatchLogHeader-example-1 ;
 .
@@ -203,7 +211,7 @@ la-status:rejected
                     A _:B65dab9880ff54f199ebaee037cada261b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "South" .
                 
                     TC .
-                \"\"\"
+                \"\"\"^^la:rdf-patch-body
                 ] ;
             sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
             sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
@@ -236,7 +244,7 @@ la-status:rejected
                     A _:B65dab9880ff54f199ebaee037cada261b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "South" .
                 
                     TC .
-                \"\"\"
+                \"\"\"^^la:rdf-patch-body
                 ] ;
             sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
             sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
@@ -307,7 +315,7 @@ la-status:rejected
 
 :MediaObject-text
     a sh:PropertyShape ;
-    sh:datatype xsd:string ;
+    sh:datatype :rdf-patch-body ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:path sdo:text ;
