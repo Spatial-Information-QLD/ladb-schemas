@@ -20,6 +20,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     skos:prefLabel "Change Request" ;
     sh:property
         :ChangeRequest-actionStatus ,
+        :ChangeRequest-additionalType ,
         :ChangeRequest-agent ,
         :ChangeRequest-description ,
         :ChangeRequest-error ,
@@ -118,6 +119,14 @@ la-status:rejected
     sh:path sdo:actionStatus ;
 .
 
+:ChangeRequest-additionalType
+    a sh:PropertyShape ;
+    sh:description "The class IRI this change request affects. This is the class IRI of the object described with the sdo:object property." ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:path sdo:additionalType ;
+.
+
 :ChangeRequest-agent
     a sh:PropertyShape ;
     sh:description "Person who created the change request." ;
@@ -192,13 +201,14 @@ la-status:rejected
 :ChangeRequest-example-1
     a sdo:TextObject ;
     sh:order 1 ;
-    sdo:description "A valid change request with an RDF patch log body as the value for sdo:object." ;
+    sdo:description "A valid change request with an accepted status with an RDF patch log body as the value for sdo:object." ;
     sdo:encodingFormat "text/turtle" ;
     sdo:name "Change Request Example - Valid" ;
     sdo:text """
             <urn:ladb:changerequest:7ec569bd-0dec-4fec-8485-fcb22e1076a8>
             a la:ChangeRequest ;
             sdo:actionStatus la-status:accepted ;
+            sdo:additionalType <https://linked.data.gov.au/def/roads/RoadLabel> ;
             sdo:agent <urn:ladb:user:edmond-chuc> ;
             sdo:description "Add suffix for new road divide." ;
             sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
@@ -222,13 +232,14 @@ la-status:rejected
 :ChangeRequest-example-2
     a sdo:TextObject ;
     sh:order 2 ;
-    sdo:description "An invalid change request with an RDF patch log body as the value for sdo:object." ;
+    sdo:description "An invalid change request (processing the change request errored out) with an RDF patch log body as the value for sdo:object." ;
     sdo:encodingFormat "text/turtle" ;
     sdo:name "Change Request Example - Invalid" ;
     sdo:text """
         <urn:ladb:changerequest:05708d9f-74cc-46b8-a1f0-9cf80b78c189>
             a la:ChangeRequest ;
             sdo:actionStatus la-status:failed ;
+            sdo:additionalType <https://linked.data.gov.au/def/roads/RoadLabel> ;
             sdo:agent <urn:ladb:user:edmond-chuc> ;
             sdo:description "Add suffix for new road divide." ;
             sdo:error [
