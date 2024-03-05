@@ -75,6 +75,7 @@ la-user-role:reader
     la:isActive true ;
     la:role la-user-role:admin ;
     sdo:email "edmond@kurrawong.ai" ;
+    sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
 .
 
 la-status:accepted

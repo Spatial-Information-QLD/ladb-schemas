@@ -72,6 +72,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     skos:definition "System user account." ;
     skos:prefLabel "User" ;
     sh:property
+        :Property-schemaVersion ,
         :User-email ,
         :User-hashedPassword ,
         :User-isActive ,
@@ -573,6 +574,13 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
     sh:path sdo:about ;
 .
 
+sdo:description
+    a owl:AnnotationProperty ;
+    rdfs:isDefinedBy sdo: ;
+    skos:definition "A description of the item." ;
+    skos:prefLabel "description" ;
+.
+
 :Property-schemaVersion
     a sh:PropertyShape ;
     sh:datatype xsd:anyURI ;
@@ -580,13 +588,6 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:path sdo:schemaVersion ;
-.
-
-sdo:description
-    a owl:AnnotationProperty ;
-    rdfs:isDefinedBy sdo: ;
-    skos:definition "A description of the item." ;
-    skos:prefLabel "description" ;
 .
 
 la-user-role:UserRoles
