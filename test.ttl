@@ -1,5 +1,6 @@
 PREFIX la: <https://linked.data.gov.au/def/location-addressing/>
 PREFIX la-status: <https://linked.data.gov.au/def/location-addressing/status/>
+PREFIX la-user-role: <https://linked.data.gov.au/def/location-addressing/user-role/>
 PREFIX sdo: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -18,9 +19,24 @@ la-status:rejected
     skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
+la-user-role:editor
+    a skos:Concept ;
+    skos:inScheme la-user-role:UserRoles ;
+    skos:prefLabel "editor" ;
+    skos:topConceptOf la-user-role:UserRoles ;
+.
+
+la-user-role:reader
+    a skos:Concept ;
+    skos:inScheme la-user-role:UserRoles ;
+    skos:prefLabel "reader" ;
+    skos:topConceptOf la-user-role:UserRoles ;
+.
+
 <urn:ladb:changerequest:05708d9f-74cc-46b8-a1f0-9cf80b78c189>
     a la:ChangeRequest ;
     sdo:actionStatus la-status:failed ;
+    sdo:additionalType <https://linked.data.gov.au/def/roads/RoadLabel> ;
     sdo:agent <urn:ladb:user:edmond-chuc> ;
     sdo:description "Add suffix for new road divide." ;
     sdo:error [
@@ -53,6 +69,14 @@ la-status:rejected
     sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
 .
 
+<urn:ladb:user:edmond.kurrawong.ai>
+    a la:User ;
+    la:hashedPassword "$@Lh@K$#H!lk@JH$L!K@$jH!@" ;
+    la:isActive true ;
+    la:role la-user-role:admin ;
+    sdo:email "edmond@kurrawong.ai" ;
+.
+
 la-status:accepted
     a skos:Concept ;
     skos:inScheme la-status:ChangeRequestStatuses ;
@@ -67,9 +91,17 @@ la-status:failed
     skos:topConceptOf la-status:ChangeRequestStatuses ;
 .
 
+la-user-role:admin
+    a skos:Concept ;
+    skos:inScheme la-user-role:UserRoles ;
+    skos:prefLabel "administrator" ;
+    skos:topConceptOf la-user-role:UserRoles ;
+.
+
 <urn:ladb:changerequest:7ec569bd-0dec-4fec-8485-fcb22e1076a8>
     a la:ChangeRequest ;
     sdo:actionStatus la-status:accepted ;
+    sdo:additionalType <https://linked.data.gov.au/def/roads/RoadLabel> ;
     sdo:agent <urn:ladb:user:edmond-chuc> ;
     sdo:description "Add suffix for new road divide." ;
     sdo:object <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
@@ -87,6 +119,11 @@ la-status:failed
         ] ;
     sdo:schemaVersion "https://spatial-information-qld.github.io/ladb-schemas/schema.ttl"^^xsd:anyURI ;
     sdo:startTime "2024-02-16T01:12:08+00:00"^^xsd:dateTime ;
+.
+
+la-user-role:UserRoles
+    a skos:ConceptScheme ;
+    skos:prefLabel "User Roles" ;
 .
 
 la-status:ChangeRequestStatuses

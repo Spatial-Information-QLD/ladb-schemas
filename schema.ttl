@@ -1,6 +1,7 @@
 PREFIX : <https://linked.data.gov.au/def/location-addressing/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX la-status: <https://linked.data.gov.au/def/location-addressing/status/>
+PREFIX la-user-role: <https://linked.data.gov.au/def/location-addressing/user-role/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -63,6 +64,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         :PatchLogHeader-example-1 ;
 .
 
+:User
+    a
+        rdfs:Class ,
+        owl:Class ,
+        sh:NodeShape ;
+    skos:definition "System user account." ;
+    skos:prefLabel "User" ;
+    sh:property
+        :User-email ,
+        :User-hashedPassword ,
+        :User-isActive ,
+        :User-role ;
+    sdo:workExample :User-example-0 ;
+.
+
 rdf:value
     a
         rdf:Property ,
@@ -107,6 +123,27 @@ la-status:rejected
     skos:inScheme la-status:ChangeRequestStatuses ;
     skos:prefLabel "rejected" ;
     skos:topConceptOf la-status:ChangeRequestStatuses ;
+.
+
+la-user-role:admin
+    a skos:Concept ;
+    skos:inScheme la-user-role:UserRoles ;
+    skos:prefLabel "administrator" ;
+    skos:topConceptOf la-user-role:UserRoles ;
+.
+
+la-user-role:editor
+    a skos:Concept ;
+    skos:inScheme la-user-role:UserRoles ;
+    skos:prefLabel "editor" ;
+    skos:topConceptOf la-user-role:UserRoles ;
+.
+
+la-user-role:reader
+    a skos:Concept ;
+    skos:inScheme la-user-role:UserRoles ;
+    skos:prefLabel "reader" ;
+    skos:topConceptOf la-user-role:UserRoles ;
 .
 
 :ChangeRequest-actionStatus
@@ -310,12 +347,6 @@ la-status:rejected
     sh:path skos:inScheme ;
 .
 
-:Concept-type
-    a sh:PropertyShape ;
-    sh:hasValue skos:Concept ;
-    sh:path rdf:type ;
-.
-
 :MediaObject
     a sh:NodeShape ;
     sh:property
@@ -386,6 +417,88 @@ la-status:rejected
     sh:path sdo:isPartOf ;
 .
 
+:User-email
+    a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:description "The user's email." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path sdo:email ;
+.
+
+:User-example-0
+    a sdo:TextObject ;
+    sh:order 0 ;
+    sdo:description "A user with the admin role." ;
+    sdo:encodingFormat "text/turtle" ;
+    sdo:name "User with admin role" ;
+    sdo:text """
+            <urn:ladb:user:edmond.kurrawong.ai>
+                a la:User ;
+                la:hashedPassword "$@Lh@K$#H!lk@JH$L!K@$jH!@" ;
+                la:isActive true ;
+                la:role la-user-role:admin ;
+                sdo:email "edmond@kurrawong.ai" ;
+            .
+        """ ;
+.
+
+:User-hashedPassword
+    a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:description "The salt plus hashed content of the user's password." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path :hashedPassword ;
+.
+
+:User-isActive
+    a sh:PropertyShape ;
+    sh:datatype xsd:boolean ;
+    sh:description "Whether the user's account is active or not. Only active users can log into the system." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path :isActive ;
+.
+
+:User-role
+    a sh:PropertyShape ;
+    sh:description "The role of the user." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node :UserRole ;
+    sh:nodeKind sh:IRI ;
+    sh:path :role ;
+.
+
+:UserRole
+    a sh:NodeShape ;
+    sh:property
+        :Concept-type ,
+        :UserRole-inScheme ;
+.
+
+:UserRole-inScheme
+    a sh:PropertyShape ;
+    sh:hasValue la-user-role:UserRoles ;
+    sh:path skos:inScheme ;
+.
+
+:hashedPassword
+    a owl:DatatypeProperty ;
+    skos:prefLabel "hashed password" ;
+.
+
+:isActive
+    a owl:DatatypeProperty ;
+    skos:prefLabel "is active" ;
+.
+
+:role
+    a owl:DatatypeProperty ;
+    skos:prefLabel "role" ;
+.
+
 sdo:actionStatus
     a owl:ObjectProperty ;
     rdfs:isDefinedBy sdo: ;
@@ -430,6 +543,12 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
     skos:prefLabel "start time" ;
 .
 
+:Concept-type
+    a sh:PropertyShape ;
+    sh:hasValue skos:Concept ;
+    sh:path rdf:type ;
+.
+
 :MediaObject-encodingFormat
     a sh:PropertyShape ;
     sh:description "A supported encoding format." ;
@@ -468,6 +587,11 @@ sdo:description
     rdfs:isDefinedBy sdo: ;
     skos:definition "A description of the item." ;
     skos:prefLabel "description" ;
+.
+
+la-user-role:UserRoles
+    a skos:ConceptScheme ;
+    skos:prefLabel "User Roles" ;
 .
 
 la-status:ChangeRequestStatuses
