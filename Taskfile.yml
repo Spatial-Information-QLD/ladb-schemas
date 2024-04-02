@@ -11,8 +11,11 @@ tasks:
 
   pylode:
     cmds:
-      - pylode -p supermodel -o index.html schema.ttl
+      - pylode -p supermodel -o index.html schemas/app.ttl
       - python -m http.server
 
   test:
-    cmd: pyshacl -s schema.ttl test.ttl
+    cmd: pyshacl -a -s schemas/app.ttl tests/app.ttl
+
+  test:roads:
+    cmd: pyshacl -a -s schemas/roads.ttl tests/roads.ttl

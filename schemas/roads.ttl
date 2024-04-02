@@ -1,0 +1,96 @@
+PREFIX : <https://linked.data.gov.au/def/location-addressing/>
+PREFIX cn: <https://linked.data.gov.au/def/cn/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX roads: <https://linked.data.gov.au/def/roads/>
+PREFIX sdo: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+:RoadLabel-rule-required
+    a sh:NodeShape ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:target [
+            a sh:SPARQLTarget ;
+            sh:select """
+            PREFIX rct: <https://linked.data.gov.au/def/roads/ct/>
+            PREFIX sdo: <https://schema.org/>
+            SELECT $this
+            WHERE {
+                $this sdo:additionalType rct:RoadName .
+            }
+        """
+        ] ;
+.
+
+:RoadLabel-rule-the
+    a sh:NodeShape ;
+    sh:not [
+            sh:flags "i" ;
+            sh:message "A road name cannot be named 'The'." ;
+            sh:path rdf:value ;
+            sh:pattern "^the$"
+        ] ;
+    sh:target [
+            a sh:SPARQLTarget ;
+            sh:select """
+            PREFIX rct: <https://linked.data.gov.au/def/roads/ct/>
+            PREFIX sdo: <https://schema.org/>
+            SELECT $this
+            WHERE {
+                $this sdo:additionalType rct:RoadName .
+            }
+        """
+        ] ;
+.
+
+:RoadObject
+    a sh:NodeShape ;
+    sh:property
+        :RoadObject-identifier ,
+        :RoadObject-name ;
+    sh:targetClass roads:RoadObject ;
+.
+
+:CompoundName-isNameFor
+    a sh:PropertyShape ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:path cn:isNameFor ;
+.
+
+:CompoundName-label
+    a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:Literal ;
+    sh:path rdfs:label ;
+.
+
+:RoadLabel
+    a sh:NodeShape ;
+    sh:class
+        cn:CompoundName ,
+        roads:RoadLabel ;
+    sh:property
+        :CompoundName-isNameFor ,
+        :CompoundName-label ;
+.
+
+:RoadObject-identifier
+    a sh:PropertyShape ;
+    sh:datatype <urn:ladb:sir-id> ;
+    sh:description "RoadObject identifiers must be an RDF literal with the datatype urn:ladb:sir-id." ;
+    sh:nodeKind sh:Literal ;
+    sh:path sdo:identifier ;
+.
+
+:RoadObject-name
+    a sh:PropertyShape ;
+    sh:node :RoadLabel ;
+    sh:nodeKind sh:IRI ;
+    sh:path sdo:name ;
+.
+
