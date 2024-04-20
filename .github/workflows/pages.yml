@@ -33,8 +33,8 @@ jobs:
       - name: Build documentation
         run: |
           mkdir -p dist/
-          pylode -p supermodel -o dist/index.html schema.ttl
-          cp schema.ttl dist/schema.ttl
+          pylode -p supermodel -o dist/index.html schemas/app.ttl
+          cp schemas/app.ttl dist/schema.ttl
 
       - name: Upload UI artifacts
         uses: actions/upload-pages-artifact@v3
