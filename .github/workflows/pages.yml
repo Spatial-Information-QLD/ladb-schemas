@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 env:
-  PYLODE_COMMIT: 92ffb4b9b5b3497d52bfb15dc5b37fd0cab7e441
+  PYLODE_VERSION: "3.1.4"
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
           pipx ensurepath
 
       - name: Install pyLODE
-        run: pipx install git+https://github.com/RDFLib/pyLODE@${{ env.PYLODE_COMMIT }}
+        run: pipx install pylode=={{ env.PYLODE_VERSION }}
 
       - name: Build documentation
         run: |
