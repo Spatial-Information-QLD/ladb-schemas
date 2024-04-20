@@ -28,7 +28,7 @@ jobs:
           pipx ensurepath
 
       - name: Install pyLODE
-        run: pipx install pylode=={{ env.PYLODE_VERSION }}
+        run: pipx install pylode==${ env.PYLODE_VERSION }}
 
       - name: Build documentation
         run: |
