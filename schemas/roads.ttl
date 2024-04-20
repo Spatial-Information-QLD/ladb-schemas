@@ -1,5 +1,8 @@
 PREFIX : <https://linked.data.gov.au/def/location-addressing/>
 PREFIX cn: <https://linked.data.gov.au/def/cn/>
+PREFIX lc: <https://linked.data.gov.au/def/lifecycle/>
+PREFIX ns1: <urn:form:>
+PREFIX rct: <https://linked.data.gov.au/def/roads/ct/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX roads: <https://linked.data.gov.au/def/roads/>
@@ -7,28 +10,104 @@ PREFIX sdo: <https://schema.org/>
 PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
+:CompoundName-isNameFor
+    a sh:PropertyShape ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:path cn:isNameFor ;
+.
+
 :RoadLabel-rule-required
     a sh:NodeShape ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:target [
-            a sh:SPARQLTarget ;
+    sh:property
+        [
+            sh:message "Road name is required." ;
+            sh:node [
+                    sh:not [
+                            sh:path rdf:value ;
+                            sh:pattern "^$"
+                        ]
+                ] ;
+            sh:path sdo:hasPart ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                    sh:hasValue rct:RoadName ;
+                    sh:path sdo:additionalType
+                ] ;
+            ns1:field "road-name"
+        ] ,
+        [
+            sh:message "A road label must have at least 1 lifecycle stage with a status." ;
+            sh:path lc:hasLifecycleStage ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                    sh:maxCount 1 ;
+                    sh:minCount 1 ;
+                    sh:path sdo:additionalType
+                ]
+        ] ,
+        [
+            sh:message "The road label parts cannot be empty." ;
+            sh:minCount 1 ;
+            sh:path sdo:hasPart
+        ] ,
+        [
+            sh:maxCount 3 ;
+            sh:message "The road label parts cannot have more than 3 parts." ;
+            sh:path sdo:hasPart
+        ] ,
+        [
+            sh:message "The road label parts must be one of the following types. ( rct:RoadName rct:RoadType rct:RoadSuffix )" ;
+            sh:node [
+                    sh:property [
+                            sh:in (
+                                    rct:RoadName
+                                    rct:RoadType
+                                    rct:RoadSuffix
+                                ) ;
+                            sh:path sdo:additionalType
+                        ]
+                ] ;
+            sh:path sdo:hasPart
+        ] ;
+    sh:sparql [
+            sh:message "The most recent lifecycle stage cannot have an end date. Label with IRI {?this}." ;
             sh:select """
-            PREFIX rct: <https://linked.data.gov.au/def/roads/ct/>
-            PREFIX sdo: <https://schema.org/>
-            SELECT $this
+            PREFIX lc: <https://linked.data.gov.au/def/lifecycle/>
+            PREFIX time: <http://www.w3.org/2006/time#>
+            SELECT *
             WHERE {
-                $this sdo:additionalType rct:RoadName .
+                {
+                    SELECT $this (SUM(?hasTimeEnd) AS ?sum)
+                    WHERE {
+                        $this lc:hasLifecycleStage ?lcStage .
+                        BIND(
+                            IF(
+                                EXISTS {
+                                    ?lcStage time:hasEnd ?timeEnd .
+                                },
+                                0,
+                                1
+                            )
+                            AS ?hasTimeEnd
+                        )
+                    }
+                    GROUP BY $this
+                }
+
+                FILTER(?sum != 1)
             }
         """
         ] ;
+    sh:targetClass roads:RoadLabel ;
 .
 
 :RoadLabel-rule-the
     a sh:NodeShape ;
+    sh:message "Road name cannot be named 'The'." ;
     sh:not [
             sh:flags "i" ;
-            sh:message "A road name cannot be named 'The'." ;
             sh:path rdf:value ;
             sh:pattern "^the$"
         ] ;
@@ -43,6 +122,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             }
         """
         ] ;
+    ns1:field "road-name" ;
 .
 
 :RoadObject
@@ -51,13 +131,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         :RoadObject-identifier ,
         :RoadObject-name ;
     sh:targetClass roads:RoadObject ;
-.
-
-:CompoundName-isNameFor
-    a sh:PropertyShape ;
-    sh:minCount 1 ;
-    sh:nodeKind sh:IRI ;
-    sh:path cn:isNameFor ;
 .
 
 :CompoundName-label
@@ -74,9 +147,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:class
         cn:CompoundName ,
         roads:RoadLabel ;
-    sh:property
-        :CompoundName-isNameFor ,
-        :CompoundName-label ;
+    sh:property :CompoundName-label ;
 .
 
 :RoadObject-identifier

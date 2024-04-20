@@ -18,4 +18,5 @@ tasks:
     cmd: pyshacl -a -s schemas/app.ttl tests/app.ttl
 
   test:roads:
-    cmd: pyshacl -a -s schemas/roads.ttl tests/roads.ttl
+    cmds:
+      - pyshacl -a -s schemas/roads.ttl tests/roads.ttl

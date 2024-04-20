@@ -1,42 +1,43 @@
 PREFIX cn: <https://linked.data.gov.au/def/cn/>
+PREFIX lc: <https://linked.data.gov.au/def/lifecycle/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX roads: <https://linked.data.gov.au/def/roads/>
 PREFIX schema: <https://schema.org/>
+PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://linked.data.gov.au/dataset/qld-addr/road-QLDRGLE1505062823354926370>
-    a roads:RoadObject ;
+    a <https://linked.data.gov.au/def/roads/RoadObject> ;
     schema:identifier "QLDRGLE1505062823354926370"^^<urn:ladb:sir-id> ;
     schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRGLE1505062823354926370> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-QLDRGOL1534374428054953430>
-    a roads:RoadObject ;
+    a <https://linked.data.gov.au/def/roads/RoadObject> ;
     schema:identifier "QLDRGOL1534374428054953430"^^<urn:ladb:sir-id> ;
     schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRGOL1534374428054953430> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-QLDRING1533553027940663430>
-    a roads:RoadObject ;
+    a <https://linked.data.gov.au/def/roads/RoadObject> ;
     schema:identifier "QLDRING1533553027940663430"^^<urn:ladb:sir-id> ;
     schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRING1533553027940663430> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-QLDRMAR1534104027957583430>
-    a roads:RoadObject ;
+    a <https://linked.data.gov.au/def/roads/RoadObject> ;
     schema:identifier "QLDRMAR1534104027957583430"^^<urn:ladb:sir-id> ;
     schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-QLDRMER1530324027391841000>
-    a roads:RoadObject ;
+    a <https://linked.data.gov.au/def/roads/RoadObject> ;
     schema:identifier "QLDRMER1530324027391841000"^^<urn:ladb:sir-id> ;
     schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMER1530324027391841000> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-QLDRYUN1530828927326621000>
-    a roads:RoadObject ;
+    a <https://linked.data.gov.au/def/roads/RoadObject> ;
     schema:identifier "QLDRYUN1530828927326621000"^^<urn:ladb:sir-id> ;
     schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRYUN1530828927326621000> ;
 .
@@ -44,9 +45,34 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRALB1531453826798616720>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Albert Street" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRALB1531453826798616720> ;
+    lc:hasLifecycleStage
+        [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            time:hasEnd [
+                    time:inXSDDate "2024-04-02"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/retired>
+        ] ,
+        [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-02"^^xsd:date
+                ] ;
+            time:hasEnd [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/retired>
+        ] ,
+        [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/published>
+        ] ;
     schema:hasPart
         [
             rdf:value "Albert" ;
@@ -56,31 +82,44 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             rdf:value <https://linked.data.gov.au/def/road-types/street> ;
             schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
         ] ;
+    schema:status <https://linked.data.gov.au/def/gn-statuses/official> ;
 .
 
-<https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRBAL1473055028002320300>
+<https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRALB1531453826798616720-will>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
-    rdfs:label "Balonne Highway" ;
-    cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
+    rdfs:label "William Street" ;
+    cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRALB1531453826798616720> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/gazetted>
+        ] ;
     schema:hasPart
         [
-            rdf:value <https://linked.data.gov.au/def/road-types/highway> ;
-            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
+            rdf:value "William" ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
         ] ,
         [
-            rdf:value "Balonne" ;
-            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
+            rdf:value <https://linked.data.gov.au/def/road-types/street> ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
         ] ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRGLE1505062823354926370>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Glenmore Road" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRGLE1505062823354926370> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/gazetted>
+        ] ;
     schema:hasPart
         [
             rdf:value <https://linked.data.gov.au/def/road-types/road> ;
@@ -95,9 +134,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRGOL1534374428054953430>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Gold Coast Highway" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRGOL1534374428054953430> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/gazetted>
+        ] ;
     schema:hasPart
         [
             rdf:value "Gold Coast" ;
@@ -112,9 +157,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRING1533553027940663430>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Ingles Circuit" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRING1533553027940663430> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/published>
+        ] ;
     schema:hasPart
         [
             rdf:value <https://linked.data.gov.au/def/road-types/circuit> ;
@@ -129,9 +180,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMAR1534104027957583430>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Marine Parade" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRMAR1534104027957583430> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/published>
+        ] ;
     schema:hasPart
         [
             rdf:value "Marine" ;
@@ -146,9 +203,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRMER1530324027391841000>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Mermaid Street" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRMER1530324027391841000> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/published>
+        ] ;
     schema:hasPart
         [
             rdf:value <https://linked.data.gov.au/def/road-types/street> ;
@@ -163,9 +226,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRYUN1530828927326621000>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Yundah Street" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-QLDRYUN1530828927326621000> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/published>
+        ] ;
     schema:hasPart
         [
             rdf:value <https://linked.data.gov.au/def/road-types/street> ;
@@ -177,572 +246,26 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         ] ;
 .
 
-<https://linked.data.gov.au/dataset/qld-addr/road-label-main-st>
-    a
-        cn:CompoundName ,
-        roads:RoadLabel ;
-    rdfs:label "Main Street"^^xsd:string ;
-    cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-main-st> ;
-    schema:hasPart
-        [
-            rdf:value "Main" ;
-            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
-        ] ,
-        [
-            rdf:value <https://linked.data.gov.au/def/road-types/street> ;
-            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
-        ] ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-label-victoria-st>
-    a
-        cn:CompoundName ,
-        roads:RoadLabel ;
-    rdfs:label "Victoria Street"^^xsd:string ;
-    cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-    schema:hasPart
-        [
-            rdf:value <https://linked.data.gov.au/def/road-types/street> ;
-            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
-        ] ,
-        [
-            rdf:value "Victoria" ;
-            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
-        ] ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018315>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018315"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018316>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018316"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018317>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018317"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018318>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018318"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018319>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018319"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018320>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018320"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018321>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018321"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018322>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018322"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018323>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018323"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018324>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018324"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018325>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018325"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018326>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018326"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018327>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018327"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018328>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018328"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018329>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018329"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018330>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018330"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018331>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018331"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018332>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018332"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018333>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018333"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018334>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018334"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018335>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018335"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018336>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018336"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018337>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018337"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018371>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018371"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018372>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018372"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018373>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018373"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018374>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018374"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018375>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018375"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018376>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018376"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018378>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018378"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018379>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018379"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018380>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018380"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018381>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018381"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018382>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018382"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018383>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018383"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018384>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018384"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018385>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018385"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018386>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018386"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018387>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018387"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018388>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018388"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018389>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018389"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018390>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018390"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018391>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018391"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018392>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018392"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018393>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018393"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018394>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018394"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018395>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018395"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018396>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018396"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018397>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018397"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018398>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018398"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018399>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018399"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018400>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018400"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018401>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000018401"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000215672>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000215672"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-main-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000215673>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000215673"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-main-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000215674>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000215674"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-main-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376630>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000376630"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376631>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000376631"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376632>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000376632"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376633>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000376633"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376635>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000376635"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376637>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000376637"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376643>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16015103990000376643"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-segment-16209983630000000118>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:identifier "16209983630000000118"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-.
-
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-0-0>
     a
-        roads:RoadObject ,
-        roads:RoadSegment ;
+        <https://linked.data.gov.au/def/roads/RoadObject> ,
+        <https://linked.data.gov.au/def/roads/RoadSegment> ;
     schema:identifier "QLDRALB1531453826798616720-0-0-0"^^<urn:ladb:sir-id> ;
     schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-0> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-1-0>
     a
-        roads:RoadObject ,
-        roads:RoadSegment ;
+        <https://linked.data.gov.au/def/roads/RoadObject> ,
+        <https://linked.data.gov.au/def/roads/RoadSegment> ;
     schema:identifier "QLDRALB1531453826798616720-1-0"^^<urn:ladb:sir-id> ;
     schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-1> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-2-0>
     a
-        roads:RoadObject ,
-        roads:RoadSegment ;
+        <https://linked.data.gov.au/def/roads/RoadObject> ,
+        <https://linked.data.gov.au/def/roads/RoadSegment> ;
     schema:identifier "QLDRALB1531453826798616720-2-0"^^<urn:ladb:sir-id> ;
     schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-2> ;
 .
@@ -750,9 +273,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Local Bert Drive" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/retired>
+        ] ;
     schema:hasPart
         [
             rdf:value "Local Bert" ;
@@ -767,26 +296,80 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-0>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Lil Bert Drive" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-0> ;
-    schema:hasPart
+    lc:hasLifecycleStage
         [
-            rdf:value <https://linked.data.gov.au/def/road-types/drive> ;
-            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            time:hasEnd [
+                    time:inXSDDate "2024-04-02"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/retired>
         ] ,
+        [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-02"^^xsd:date
+                ] ;
+            time:hasEnd [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/retired>
+        ] ,
+        [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/published>
+        ] ;
+    schema:hasPart
         [
             rdf:value "Lil Bert" ;
             schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
+        ] ,
+        [
+            rdf:value <https://linked.data.gov.au/def/road-types/drive> ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
+        ] ;
+.
+
+<https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-0-another>
+    a
+        cn:CompoundName ,
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
+    rdfs:label "Another Lil Bert Drive" ;
+    cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-0> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/gazetted>
+        ] ;
+    schema:hasPart
+        [
+            rdf:value "Another Lil Bert" ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
+        ] ,
+        [
+            rdf:value <https://linked.data.gov.au/def/road-types/drive> ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
         ] ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-1>
     a
         cn:CompoundName ,
-        roads:RoadLabel ;
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
     rdfs:label "Berty Lane" ;
     cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-1> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-03"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/published>
+        ] ;
     schema:hasPart
         [
             rdf:value "Berty" ;
@@ -798,10 +381,79 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         ] ;
 .
 
+<https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-another>
+    a
+        cn:CompoundName ,
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
+    rdfs:label "Another Local Bert Drive" ;
+    cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/gazetted>
+        ] ;
+    schema:hasPart
+        [
+            rdf:value "Another Local Bert" ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
+        ] ,
+        [
+            rdf:value <https://linked.data.gov.au/def/road-types/drive> ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
+        ] ;
+.
+
+<https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-no>
+    a
+        cn:CompoundName ,
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
+    rdfs:label "No Local Bert Drive" ;
+    cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/published>
+        ] ;
+    schema:hasPart
+        [
+            rdf:value "No Local Bert" ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
+        ] ,
+        [
+            rdf:value <https://linked.data.gov.au/def/road-types/drive> ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
+        ] ;
+.
+
+<https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-retired>
+    a
+        cn:CompoundName ,
+        <https://linked.data.gov.au/def/roads/RoadLabel> ;
+    rdfs:label "Retired Local Bert Drive" ;
+    cn:isNameFor <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0> ;
+    lc:hasLifecycleStage [
+            time:hasBeginning [
+                    time:inXSDDate "2024-04-01"^^xsd:date
+                ] ;
+            schema:additionalType <https://linked.data.gov.au/def/gn-statuses/retired>
+        ] ;
+    schema:hasPart
+        [
+            rdf:value <https://linked.data.gov.au/def/road-types/drive> ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadType>
+        ] ,
+        [
+            rdf:value "Retired Local Bert" ;
+            schema:additionalType <https://linked.data.gov.au/def/roads/ct/RoadName>
+        ] ;
+.
+
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-1>
     a
-        roads:RoadObject ,
-        roads:RoadSegment ;
+        <https://linked.data.gov.au/def/roads/RoadObject> ,
+        <https://linked.data.gov.au/def/roads/RoadSegment> ;
     schema:identifier "QLDRALB1531453826798616720-0-1"^^<urn:ladb:sir-id> ;
     schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0> ;
     schema:name <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-1> ;
@@ -809,8 +461,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-1>
     a
-        roads:RoadObject ,
-        roads:RoadSegment ;
+        <https://linked.data.gov.au/def/roads/RoadObject> ,
+        <https://linked.data.gov.au/def/roads/RoadSegment> ;
     schema:hasPart <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-1-0> ;
     schema:identifier "QLDRALB1531453826798616720-1"^^<urn:ladb:sir-id> ;
     schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRALB1531453826798616720> ;
@@ -818,8 +470,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-2>
     a
-        roads:RoadObject ,
-        roads:RoadSegment ;
+        <https://linked.data.gov.au/def/roads/RoadObject> ,
+        <https://linked.data.gov.au/def/roads/RoadSegment> ;
     schema:hasPart <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-2-0> ;
     schema:identifier "QLDRALB1531453826798616720-2"^^<urn:ladb:sir-id> ;
     schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRALB1531453826798616720> ;
@@ -827,126 +479,41 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-0>
     a
-        roads:RoadObject ,
-        roads:RoadSegment ;
+        <https://linked.data.gov.au/def/roads/RoadObject> ,
+        <https://linked.data.gov.au/def/roads/RoadSegment> ;
     schema:hasPart <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-0-0> ;
     schema:identifier "QLDRALB1531453826798616720-0-0"^^<urn:ladb:sir-id> ;
     schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0> ;
-    schema:name <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-0> ;
+    schema:name
+        <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-0> ,
+        <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-0-another> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-QLDRALB1531453826798616720>
-    a roads:RoadObject ;
+    a <https://linked.data.gov.au/def/roads/RoadObject> ;
     schema:hasPart
         <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0> ,
         <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-1> ,
         <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-2> ;
     schema:identifier "QLDRALB1531453826798616720"^^<urn:ladb:sir-id> ;
-    schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRALB1531453826798616720> ;
+    schema:name
+        <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRALB1531453826798616720> ,
+        <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRALB1531453826798616720-will> ;
 .
 
 <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0>
     a
-        roads:RoadObject ,
-        roads:RoadSegment ;
+        <https://linked.data.gov.au/def/roads/RoadObject> ,
+        <https://linked.data.gov.au/def/roads/RoadSegment> ;
     schema:hasPart
         <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-0> ,
         <https://linked.data.gov.au/dataset/qld-addr/road-segment-QLDRALB1531453826798616720-0-1> ;
     schema:identifier "QLDRALB1531453826798616720-0"^^<urn:ladb:sir-id> ;
     schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRALB1531453826798616720> ;
-    schema:name <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-main-st>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:hasPart
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000215672> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000215673> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000215674> ;
-    schema:identifier "main-st-segment"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-    schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-main-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-victoria-st>
-    a
-        roads:RoadObject ,
-        roads:RoadSegment ;
-    schema:hasPart
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376630> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376631> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376632> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376633> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376635> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376637> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000376643> ;
-    schema:identifier "victoria-st-segment"^^<urn:ladb:sir-id> ;
-    schema:isPartOf <https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300> ;
-    schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-victoria-st> ;
-.
-
-<https://linked.data.gov.au/dataset/qld-addr/road-QLDRBAL1473055028002320300>
-    a roads:RoadObject ;
-    schema:hasPart
-        <https://linked.data.gov.au/dataset/qld-addr/road-main-st> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018315> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018316> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018317> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018318> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018319> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018320> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018321> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018322> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018323> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018324> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018325> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018326> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018327> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018328> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018329> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018330> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018331> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018332> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018333> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018334> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018335> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018336> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018337> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018371> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018372> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018373> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018374> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018375> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018376> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018378> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018379> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018380> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018381> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018382> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018383> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018384> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018385> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018386> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018387> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018388> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018389> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018390> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018391> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018392> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018393> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018394> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018395> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018396> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018397> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018398> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018399> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018400> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16015103990000018401> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-segment-16209983630000000118> ,
-        <https://linked.data.gov.au/dataset/qld-addr/road-victoria-st> ;
-    schema:identifier "QLDRBAL1473055028002320300"^^<urn:ladb:sir-id> ;
-    schema:name <https://linked.data.gov.au/dataset/qld-addr/road-label-QLDRBAL1473055028002320300> ;
+    schema:name
+        <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0> ,
+        <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-another> ,
+        <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-no> ,
+        <https://linked.data.gov.au/dataset/qld-addr/road-segment-label-QLDRALB1531453826798616720-0-retired> ;
 .
 
