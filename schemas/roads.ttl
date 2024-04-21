@@ -38,14 +38,20 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             ns1:field "road-name"
         ] ,
         [
-            sh:message "A road label must have at least 1 lifecycle stage with a status." ;
+            sh:message "A road label must have at least 1 lifecycle stage." ;
             sh:path lc:hasLifecycleStage ;
-            sh:qualifiedMinCount 1 ;
-            sh:qualifiedValueShape [
-                    sh:maxCount 1 ;
+            sh:minCount 1
+        ] ,
+        [
+            sh:message "All lifecycle stages must have a status." ;
+            sh:path lc:hasLifecycleStage ;
+            sh:node [
+                sh:property [
+                    sh:path sdo:additionalType ;
                     sh:minCount 1 ;
-                    sh:path sdo:additionalType
+                    sh:maxCount 1
                 ]
+            ]
         ] ,
         [
             sh:message "The road label parts cannot be empty." ;
@@ -72,7 +78,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:path sdo:hasPart
         ] ;
     sh:sparql [
-            sh:message "The most recent lifecycle stage cannot have an end date. Label with IRI {?this}." ;
+            sh:message "There must be exactly 1 lifecycle stage with no end date. See label with IRI {?this}." ;
             sh:select """
             PREFIX lc: <https://linked.data.gov.au/def/lifecycle/>
             PREFIX time: <http://www.w3.org/2006/time#>
