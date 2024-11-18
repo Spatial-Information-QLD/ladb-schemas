@@ -1,8 +1,8 @@
-PREFIX : <https://linked.data.gov.au/def/location-addressing/>
+PREFIX : <https://linked.data.gov.au/def/location-addressing/shapes/>
 PREFIX cn: <https://linked.data.gov.au/def/cn/>
 PREFIX lc: <https://linked.data.gov.au/def/lifecycle/>
 PREFIX ns1: <urn:form:>
-PREFIX rct: <https://linked.data.gov.au/def/roads/ct/>
+PREFIX rnpt: <https://linked.data.gov.au/def/road-name-part-types/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX roads: <https://linked.data.gov.au/def/roads/>
@@ -32,7 +32,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:qualifiedMaxCount 1 ;
             sh:qualifiedMinCount 1 ;
             sh:qualifiedValueShape [
-                    sh:hasValue rct:RoadName ;
+                    sh:hasValue rnpt:RoadGivenName ;
                     sh:path sdo:additionalType
                 ] ;
             ns1:field "road-name"
@@ -64,13 +64,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:path sdo:hasPart
         ] ,
         [
-            sh:message "The road label parts must be one of the following types. ( rct:RoadName rct:RoadType rct:RoadSuffix )" ;
+            sh:message "The road label parts must be one of the following types. ( rnpt:RoadGivenName rnpt:RoadType rnpt:RoadSuffix )" ;
             sh:node [
                     sh:property [
                             sh:in (
-                                    rct:RoadName
-                                    rct:RoadType
-                                    rct:RoadSuffix
+                                    rnpt:RoadGivenName
+                                    rnpt:RoadType
+                                    rnpt:RoadSuffix
                                 ) ;
                             sh:path sdo:additionalType
                         ]
@@ -120,11 +120,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:target [
             a sh:SPARQLTarget ;
             sh:select """
-            PREFIX rct: <https://linked.data.gov.au/def/roads/ct/>
+            PREFIX rnpt: <https://linked.data.gov.au/def/road-name-part-types/>
             PREFIX sdo: <https://schema.org/>
             SELECT $this
             WHERE {
-                $this sdo:additionalType rct:RoadName .
+                $this sdo:additionalType rnpt:RoadGivenName .
             }
         """
         ] ;

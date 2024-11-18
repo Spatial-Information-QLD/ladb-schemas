@@ -1,4 +1,4 @@
-PREFIX : <https://linked.data.gov.au/def/location-addressing/>
+PREFIX : <https://linked.data.gov.au/def/location-addressing/shapes/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX la-status: <https://linked.data.gov.au/def/location-addressing/status/>
 PREFIX la-user-role: <https://linked.data.gov.au/def/location-addressing/user-role/>
